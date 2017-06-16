@@ -35,4 +35,4 @@ vignettes/*.pdf
 
 
 # Exclude Filter database
-Data/FilterDataBase*
+Data/*
