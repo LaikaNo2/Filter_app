@@ -6,7 +6,7 @@ shinyServer(function(input, output) {
     if (length(input$filterInput$right) != 0) {
       data <- lapply(input$filterInput$right, function(x) {
         as.matrix(readxl::read_excel(
-          path = "Data/FilterDataBase_Bdx.xlsx",
+          path = database_path,
           sheet = x,
           skip = 14
         ))
@@ -38,7 +38,7 @@ shinyServer(function(input, output) {
   # Optical Density: Prepare data + plot
   output$densityPlot <- renderPlot({
     data <- as.matrix(readxl::read_excel(
-        path = "Data/FilterDataBase_Bdx.xlsx",
+        path = database_path,
         sheet = input$opticaldensity,
         skip = 14
       ))
@@ -56,7 +56,7 @@ shinyServer(function(input, output) {
     if (length(input$filterInput$right) != 0) {
       data <- lapply(input$filterInput$right, function(x) {
         data <- as.data.frame(t(readxl::read_excel(
-          path = "Data/FilterDataBase_Bdx.xlsx",
+          path = database_path,
           sheet = x,
           col_names = FALSE,
           n_max = 7)),
@@ -97,7 +97,7 @@ shinyServer(function(input, output) {
       if (length(input$filterInput$right) != 0) {
         data <- lapply(input$filterInput$right, function(x) {
           as.matrix(readxl::read_excel(
-            path = "Data/FilterDataBase_Bdx.xlsx",
+            path = database_path,
             sheet = x,
             skip = 14))
         })
@@ -133,7 +133,7 @@ shinyServer(function(input, output) {
       if (length(input$filterInput$right) != 0) {
         data <- lapply(input$filterInput$right, function(x) {
           as.matrix(readxl::read_excel(
-            path = "Data/FilterDataBase_Bdx.xlsx",
+            path = database_path,
             sheet = x,
             skip = 14))
         })
@@ -154,7 +154,7 @@ shinyServer(function(input, output) {
           height = input$heightInputOD,
           paper = "special")
       data <- as.matrix(readxl::read_excel(
-        path = "Data/FilterDataBase_Bdx.xlsx",
+        path = database_path,
         sheet = input$opticaldensity,
         skip = 14
       ))
@@ -176,7 +176,7 @@ shinyServer(function(input, output) {
     },
     content = function(file) {
       data <- as.matrix(readxl::read_excel(
-        path = "Data/FilterDataBase_Bdx.xlsx",
+        path = database_path,
         sheet = input$opticaldensity,
         skip = 14
       ))
@@ -189,9 +189,9 @@ shinyServer(function(input, output) {
 
  # Download Filterdatabase Master File
 output$MasterFile <- downloadHandler(
-  filename = "Filterdatabase_Bordeaux",
+  filename = "Filterdatabase",
   content = function(file){
-    file.copy("Data/FilterDataBase_Bdx.xlsx", file)
+    file.copy(database_path, file)
 
   }
 

@@ -152,14 +152,17 @@ shinyUI(
 
        )
      ),
-
-    mainPanel(plotOutput("densityPlot"))
+    mainPanel(
+      plotOutput("densityPlot")
+    )
    )
   ),
 
+  tabPanel(downloadLink("MasterFile",label = "Download Filterdatabase"),
 
-  tabPanel(downloadLink("MasterFile",label = "Download Filterdatabase")
-
+           ##TODO
+           #renderText("test",),
+           ##grepl(pattern = "template", x = database_path, fixed = TRUE)
 
  )
 )
