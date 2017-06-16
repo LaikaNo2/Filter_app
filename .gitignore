@@ -26,5 +26,5 @@ vignettes/*.pdf
 # Exclude Filter database
 Data/*
 # Exclude Apple stuff
-/*.DS_Store/
+/*.DS_Store
 .DS_Store
