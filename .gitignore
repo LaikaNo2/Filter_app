@@ -28,3 +28,6 @@ Data/*
 # Exclude Apple stuff
 /*.DS_Store
 .DS_Store
+
+# Exclude github readme
+README.html
