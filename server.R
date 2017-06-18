@@ -14,8 +14,6 @@ shinyServer(function(input, output) {
       })
 
       plot_FilterCombinations(filters = data,
-                              d = input$thicknessInput,
-                              P = input$reflectionInput,
                               xlim = input$range,
                               main = input$main,
                               legend = input$legend,
@@ -127,7 +125,7 @@ shinyServer(function(input, output) {
  # Transmission: data-table download
   output$exportTable <- downloadHandler(
     filename = function(){
-      paste(input$filenameCSV, ".csv", sep = "")
+      paste(input$filename, ".csv", sep = "")
     },
     content = function(file) {
       if (length(input$filterInput$right) != 0) {
@@ -172,7 +170,7 @@ shinyServer(function(input, output) {
   # Optical Density: data table download
   output$exportTableOD <- downloadHandler(
     filename = function(){
-      paste(input$filenameCSVOD, ".csv", sep = "")
+      paste(input$filenameOD, ".csv", sep = "")
     },
     content = function(file) {
       data <- as.matrix(readxl::read_excel(
@@ -189,16 +187,21 @@ shinyServer(function(input, output) {
 
  # Download Filterdatabase Master File
 output$MasterFile <- downloadHandler(
-  filename = "Filterdatabase",
+  filename = "Filterdatabase.xlsx",
   content = function(file){
     file.copy(database_path, file)
 
-  }
+  })
 
-
-
-
-)
+ #
+ if(grepl(pattern = "template", x = database_path, fixed = TRUE)){
+   output$warningtext <- renderText(
+     "Attention: Template data set. No real filter data!"
+   )
+   output$warningtextOD <- renderText(
+     "Attention: Template data set. No real filter data!"
+   )
+ }
 
 })
 

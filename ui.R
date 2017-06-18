@@ -8,71 +8,56 @@ shinyUI(
         tabsetPanel(type = "pills", selected = "Data",
             # Tab 1: Data Transmission
             tabPanel("Data",
-                  div(h5("Data Selection"), align = "center"),
+                  tags$hr(),
                   strong("Select filters"),
                   chooserInput("filterInput", "Filters available:", "Filters chosen:", filters, c(),
                                multiple = TRUE,  size = 5),
-                  numericInput(
-                    "thicknessInput",
-                    label = "Filter thickness",
-                    value = 0,
-                    min = 0,
-                    max = 50),
-                  numericInput(
-                    "reflectionInput",
-                    "ReflectionFactor",
-                    value = 0,
-                    min = 0,
-                    max = 5),
+                  tags$hr(),
                   radioButtons(
                     "stimulationInput",
-                    label = "Select Stimulation Unit",
+                    label = "Stimulation",
                     choices =
                       c("None" = "NA",
-                        "LD Violett" = "violett",
-                        "LED Blue" = "blue",
-                        "LED Green" = "green",
-                        "LED Infrared" = "infrared")
+                        "Violet: 405 ∆ 3 nm " = "violett",
+                        "Blue: 458 ∆ 3 nm" = "blue",
+                        "Green: 525 ∆ 20 nm" = "green",
+                        "Infrared: 850 ∆ 3 nm" = "infrared")
                     )
             ), # End Tab 1
 
             # Tab 2: Export plots + datatable Transmission
-            tabPanel("Data Export",
-                  div(h5("Download PDF"), align = "center"),
+            tabPanel("Export",
+                     tags$hr(),
                   textInput(
                     "filename",
                     label = "Filename",
                     value = "Enter filename..."),
+                  tags$hr(),
                   fluidRow(
-                    column(width = 6,
+                          column(6,
                            numericInput(
                              "widthInput",
                              label = "Image width",
-                             value = 7)
-                    ),
-                    column(width = 6,
-                           numericInput(
+                             value = 7
+                             )),
+                          column(6,
+                          numericInput(
                              "heightInput",
                              label = "Image height",
-                             value = 7)
-                    )
-                  ),
-                  downloadButton("exportPlot", label = "Download Plot"),
-
-                  div(h5("Download CSV"), align = "center"),
-                  textInput(
-                    "filenameCSV",
-                    label = "Filename",
-                    value = "Enter filename..."),
-                  downloadButton("exportTable", label = "Download Datatable")
+                             value = 7
+                             ))),
+                  downloadButton("exportPlot", label = "Download plot as PDF"),
+                  tags$hr(),
+                  downloadButton("exportTable", label = "Download rawdata as CSV")
             ), # End Tab 2
 
             # Tab 3: Plot Options Transmission
             tabPanel("Plot Options",
-                     div(h5("Plot Adjustment"), align = "center"),
+                     tags$hr(),
                      textInput("main",
                                label = "Plot title",
                                value = "Filter Combinations"),
+                     tags$hr(),
                      sliderInput("range",
                                  "Wavelength range",
                                  min = 200,
@@ -89,23 +74,38 @@ shinyUI(
 
 
 
-    mainPanel(plotOutput("filterPlot"),
-              tableOutput("metadata"))
+    mainPanel(span(textOutput("warningtext"), style = "color:red; font-size:15px", align = "center"),
+              plotOutput("filterPlot"),
+              tableOutput("metadata")
+              )
    )
   ),
   tabPanel("Optical Density",
    sidebarLayout(
      sidebarPanel(
        # tabs on sidebar Panel
-       tabsetPanel(type = "pills", selected = "Data & Export",
+       tabsetPanel(type = "pills", selected = "Data & Plot Options",
                    # Tab 1: Data Optical Density
-                   tabPanel("Data & Export",
-                            div(h5("Data Selection"), align = "center"),
+                   tabPanel("Data & Plot Options",
+                            tags$hr(),
                             selectInput("opticaldensity", label = "Select filters",
-                                        choices = filters,
-                                        selected = "HU01_HEBO"),
+                                        choices = filters),
+                            tags$hr(),
+                            textInput("mainOD",
+                                      label = "Plot title",
+                                      value = "Filter"),
+                            sliderInput("rangeOD",
+                                        "Wavelength range",
+                                        min = 200,
+                                        max = 1000,
+                                        value = c(200, 1000))
 
-                            div(h5("Download PDF"), align = "center"),
+
+
+                   ), # End Tab 1
+                   # Tab 2: Plot Options Optical Density
+                   tabPanel("Export",
+                            tags$hr(),
                             textInput(
                               "filenameOD",
                               label = "Filename",
@@ -124,47 +124,19 @@ shinyUI(
                                        value = 7)
                               )
                             ),
-                            downloadButton("exportPlotOD", label = "Download Plot"),
-
-                            div(h5("Download CSV"), align = "center"),
-                            textInput(
-                              "filenameCSVOD",
-                              label = "Filename",
-                              value = "Enter filename..."),
-                            downloadButton("exportTableOD", label = "Download Datatable")
-
-
-                   ), # End Tab 1
-                   # Tab 2: Plot Options Optical Density
-                   tabPanel("Plot Options",
-                            div(h5("Plot Adjustment"), align = "center"),
-                            textInput("mainOD",
-                                      label = "Plot title",
-                                      value = "Filter"),
-                            sliderInput("rangeOD",
-                                        "Wavelength range",
-                                        min = 200,
-                                        max = 1000,
-                                        value = c(200, 1000))
-
-                   )
-
-
+                            downloadButton("exportPlotOD", label = "Download plot as PDF"),
+                            tags$hr(),
+                            downloadButton("exportTableOD", label = "Download rawdata as CSV")
+        )
        )
      ),
-    mainPanel(
+    mainPanel(span(textOutput("warningtextOD"), style = "color:red; font-size:15px", align = "center"),
       plotOutput("densityPlot")
     )
    )
   ),
 
-  tabPanel(downloadLink("MasterFile",label = "Download Filterdatabase"),
-
-           ##TODO
-           #renderText("test",),
-           ##grepl(pattern = "template", x = database_path, fixed = TRUE)
-
- )
+  tabPanel("Downloads", downloadLink("MasterFile",label = "Download Filterdatabase", icon = "download"))
 )
 )
 

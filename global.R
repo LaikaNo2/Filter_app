@@ -23,7 +23,7 @@ if(dir.exists("Data")){
 # ##load data
 # masterfile <- read_excel_sheets("Data/FilterDataBase_Bdx.xlsx")
 filters <- readxl::excel_sheets(database_path)
-remove <- "Filter_List"
+remove <- "Main List"
 filters <- setdiff(filters, remove)
 
 
