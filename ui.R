@@ -3,7 +3,7 @@
 ## Authors: Urs Tilmann Wolpert, Department of Geography, Justus-Liebig-University Giessen
 ##          Sebastian Kreutzer, IRAMAT-CRP2A, Universite Bordeaux Montaigne (France)
 ## Contact: urs.t.wolpert@geogr.uni-giessen.de
-## Date:    Mo June 16 2017
+## Date:    Mo June 19 2017
 ##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 shinyUI(
