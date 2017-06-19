@@ -20,7 +20,7 @@ The application can be either run on a local device or an external
 [Shiny Server](https://www.rstudio.com/products/shiny/shiny-server/).
 
 Due to legal restricions the app comes with a template excel sheet (`/template/template.xlsx`), in which only random example filter data are given.
-To use one's individual filter data a new folder called '`Data`' has to be generated in the repository of the app (`/Filter_app/Data`), containing a '.xlsx' file with the filter data. Therefore the *Excel$^{TM}$* template can be copied and renamed in the '`Data`' folder and filled with own information afterwards. 
+To use one's individual filter data a new folder called '`Data`' has to be generated in the repository of the app (`/Filter_app/Data`), containing a '.xlsx' file with the filter data. Therefore the *Excel (TM)* template can be copied and renamed in the '`Data`' folder and filled with own information afterwards. 
 
 **Note that only the first '.xlsx' file in the 'Data' folder will be used by the app**
 
