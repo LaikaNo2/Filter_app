@@ -1,3 +1,8 @@
+## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+## 'chooser.R' taken from the shiny-examples repository (https://github.com/rstudio/shiny-examples) under the MIT License
+##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 chooserInput <- function(inputId, leftLabel, rightLabel, leftChoices, rightChoices,
                          size = 5, multiple = FALSE) {
 

@@ -40,3 +40,5 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 [GNU General Public License](https://github.com/LaikaNo2/Filter_app/blob/master/LICENSE) 
 for more details.
+
+The 'chooser.R' R-script and 'chooser-binding.js' Java Script used in this program are taken from the [shiny-example](https://github.com/rstudio/shiny-examples) repository under the [MIT License](https://github.com/rstudio/shiny-examples/blob/master/LICENSE).
