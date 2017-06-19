@@ -168,7 +168,7 @@ shinyUI(
              of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
              a("GNU General Public License", href = "https://github.com/LaikaNo2/Filter_app/blob/master/LICENSE"),
              "for more details."),
-           p("The 'chooser.R' R-script and 'chooser-binding.js' Java Script used in this program are taken from the",
+           p( "The 'chooser.R' R-script and 'chooser-binding.js' Java Script used in this program are taken from the",
              a("shiny-example", href = "https://github.com/rstudio/shiny-examples"),
              "repository under the", a("MIT License", href = "https://github.com/rstudio/shiny-examples/blob/master/LICENSE"), ".")
 
