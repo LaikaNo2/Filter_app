@@ -7,7 +7,7 @@
 ##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 shinyUI(
- navbarPage("Filter App",
+ navbarPage("Filter_app",
   tabPanel("Transmission",
    sidebarLayout(
     sidebarPanel(
@@ -75,13 +75,7 @@ shinyUI(
                   downloadButton("exportPlot", label = "Download plot as PDF"),
                   tags$hr(),
                   downloadButton("exportTable", label = "Download raw data as CSV")
-            ), # End Tab 3
-
-            # Tab 4: About
-            tabPanel("About",
-                     tags$hr(),
-                     p("")
-            ) # End Tab 4
+            ) # End Tab 3
 
 
 
@@ -151,7 +145,31 @@ shinyUI(
    )
   ),
 
-  tabPanel("Downloads", downloadLink("MasterFile",label = "Download Filterdatabase", icon = "download"))
+  tabPanel("Downloads", downloadLink("MasterFile",label = "Download Filterdatabase", icon = "download")),
+
+  tabPanel("About",
+           h5("Authors"),
+           p("Urs Tilmann Wolpert, Department of Geography, Justus-Liebig-University Giessen (Germany)"),
+           p("Sebastian Kreutzer, IRAMAT-CRP2A, Universite Bordeaux Montaigne (France)"),
+           h5("Contact"),
+           p("urs.t.wolpert@geogr.uni-giessen.de"),
+           tags$hr(),
+           p("This application was developed in framework of an
+             internship at the IRAMAT-CRP2A at the Université Bordeaux Montaigne, France."),
+           p(strong("Due to legal restrictions the app itself comes without any filter data.")),
+           br(),
+           h5("License"),
+           p("This program is free software: you can redistribute it and/or
+             modify it under the terms of the GNU General Public License as
+             published by the Free Software Foundation, either version 3 of
+             the License, or any later version."),
+           p("This program is distributed in the hope that it will be useful
+             , but WITHOUT ANY WARRANTY; without even the implied warranty
+             of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
+             a("GNU General Public License", href = "https://github.com/LaikaNo2/Filter_app/blob/master/LICENSE"),
+             "for more details.")
+
+           )
 )
 )
 

@@ -49,7 +49,6 @@ shinyServer(function(input, output) {
         skip = 14
       ))
   data[is.na(data[,3]),3] <- max(data[,3],na.rm = TRUE)
- print(data)
      plot(data[,c(1,3)], type = "l",
           xlim = input$rangeOD,
           xlab = "Wavelength [nm]",
