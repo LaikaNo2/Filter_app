@@ -1,3 +1,11 @@
+## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+## Title:   Filter_app
+## Authors: Urs Tilmann Wolpert, Department of Geography, Justus-Liebig-University Giessen
+##          Sebastian Kreutzer, IRAMAT-CRP2A, Universite Bordeaux Montaigne (France)
+## Contact: urs.t.wolpert@geogr.uni-giessen.de
+## Date:    Mo June 16 2017
+##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 library(shiny)
 library(Luminescence)
 require(readxl)
@@ -21,7 +29,6 @@ if(dir.exists("Data")){
 
 
 # ##load data
-# masterfile <- read_excel_sheets("Data/FilterDataBase_Bdx.xlsx")
 filters <- readxl::excel_sheets(database_path)
 remove <- "Main List"
 filters <- setdiff(filters, remove)

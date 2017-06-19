@@ -1,4 +1,11 @@
-##
+## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+## Title:   Filter_app
+## Authors: Urs Tilmann Wolpert, Department of Geography, Justus-Liebig-University Giessen
+##          Sebastian Kreutzer, IRAMAT-CRP2A, Universite Bordeaux Montaigne (France)
+## Contact: urs.t.wolpert@geogr.uni-giessen.de
+## Date:    Mo June 16 2017
+##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 shinyUI(
  navbarPage("Filter App",
   tabPanel("Transmission",
@@ -15,7 +22,7 @@ shinyUI(
                   tags$hr(),
                   radioButtons(
                     "stimulationInput",
-                    label = "Stimulation",
+                    label = "Show stimulation wavelength",
                     choices =
                       c("None" = "NA",
                         "Violet: 405 ∆ 3 nm " = "violett",
@@ -25,7 +32,26 @@ shinyUI(
                     )
             ), # End Tab 1
 
-            # Tab 2: Export plots + datatable Transmission
+            # Tab 2: Plot Options Transmission
+            tabPanel("Plot Options",
+                     tags$hr(),
+                     textInput("main",
+                               label = "Plot title",
+                               value = "Filter Combinations"),
+                     tags$hr(),
+                     sliderInput("range",
+                                 "Wavelength range",
+                                 min = 200,
+                                 max = 1000,
+                                 value = c(200, 1000)),
+                     checkboxInput(inputId = "legend",
+                                   label = "Show legend",
+                                   value = TRUE)
+
+
+            ), # End Tab 2
+
+            # Tab 3: Export plots + datatable Transmission
             tabPanel("Export",
                      tags$hr(),
                   textInput(
@@ -48,27 +74,16 @@ shinyUI(
                              ))),
                   downloadButton("exportPlot", label = "Download plot as PDF"),
                   tags$hr(),
-                  downloadButton("exportTable", label = "Download rawdata as CSV")
-            ), # End Tab 2
+                  downloadButton("exportTable", label = "Download raw data as CSV")
+            ), # End Tab 3
 
-            # Tab 3: Plot Options Transmission
-            tabPanel("Plot Options",
+            # Tab 4: About
+            tabPanel("About",
                      tags$hr(),
-                     textInput("main",
-                               label = "Plot title",
-                               value = "Filter Combinations"),
-                     tags$hr(),
-                     sliderInput("range",
-                                 "Wavelength range",
-                                 min = 200,
-                                 max = 1000,
-                                 value = c(200, 1000)),
-                     checkboxInput(inputId = "legend",
-                                   label = "Show legend",
-                                   value = TRUE)
+                     p("")
+            ) # End Tab 4
 
 
-            ) # End Tab 3
 
             )),
 
@@ -126,7 +141,7 @@ shinyUI(
                             ),
                             downloadButton("exportPlotOD", label = "Download plot as PDF"),
                             tags$hr(),
-                            downloadButton("exportTableOD", label = "Download rawdata as CSV")
+                            downloadButton("exportTableOD", label = "Download raw data as CSV")
         )
        )
      ),
