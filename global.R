@@ -27,10 +27,7 @@ if(dir.exists("Data")){
 
 }
 
-
-# ##load data
+# ##load data and cleanup filter list
 filters <- readxl::excel_sheets(database_path)
-remove <- "Main List"
-filters <- setdiff(filters, remove)
-
+filters <- filters[!grepl(pattern = "Main List", x = filters, fixed = TRUE)]
 

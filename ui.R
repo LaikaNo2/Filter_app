@@ -17,8 +17,7 @@ shinyUI(
             tabPanel("Data",
                   tags$hr(),
                   strong("Select filters"),
-                  chooserInput("filterInput", "Filters available:", "Filters chosen:", filters, c(),
-                               multiple = TRUE,  size = 5),
+                  uiOutput(outputId = "filters"),
                   tags$hr(),
                   radioButtons(
                     "stimulationInput",
@@ -141,11 +140,17 @@ shinyUI(
      ),
     mainPanel(span(textOutput("warningtextOD"), style = "color:red; font-size:15px", align = "center"),
       plotOutput("densityPlot")
+
     )
    )
   ),
 
-  tabPanel("Downloads", downloadLink("MasterFile",label = "Download Filterdatabase", icon = "download")),
+  tabPanel("Downloads",
+
+           downloadLink("MasterFile",label = "Download Filterdatabase", icon = "download"),
+           fileInput("own_file", accept = "*.xlsx", label = "test")
+
+           ),
 
   tabPanel("About",
            h5("Authors"),
