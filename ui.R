@@ -24,10 +24,10 @@ shinyUI(
                     label = "Show stimulation wavelength",
                     choices =
                       c("None" = "NA",
-                        "Violet: 405 ± 3 nm " = "violett",
-                        "Blue: 458 ± 3 nm" = "blue",
-                        "Green: 525 ± 20 nm" = "green",
-                        "Infrared: 850 ± 3 nm" = "infrared")
+                        "Violet: 405 \u0394 3 nm " = "violett",
+                        "Blue: 458 \u0394 3 nm" = "blue",
+                        "Green: 525 \u0394 20 nm" = "green",
+                        "Infrared: 850 \u0394 3 nm" = "infrared")
                     )
             ), # End Tab 1
 
