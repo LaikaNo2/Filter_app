@@ -8,8 +8,8 @@
 
 library(shiny)
 library(Luminescence)
-library(readxl)
-library(RLumShiny)
+require(readxl)
+source("chooser.R")
 
 ##check whether a real database exists or the template should be loaded
 if(dir.exists("Data")){
