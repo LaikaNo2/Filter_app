@@ -24,10 +24,10 @@ shinyUI(
                     label = "Show stimulation wavelength",
                     choices =
                       c("None" = "NA",
-                        "Violet: 405 ∆ 3 nm " = "violett",
-                        "Blue: 458 ∆ 3 nm" = "blue",
-                        "Green: 525 ∆ 20 nm" = "green",
-                        "Infrared: 850 ∆ 3 nm" = "infrared")
+                        "Violet: 405 ± 3 nm " = "violett",
+                        "Blue: 458 ± 3 nm" = "blue",
+                        "Green: 525 ± 20 nm" = "green",
+                        "Infrared: 850 ± 3 nm" = "infrared")
                     )
             ), # End Tab 1
 
@@ -145,10 +145,16 @@ shinyUI(
    )
   ),
 
-  tabPanel("Downloads",
+  tabPanel("Advanced",
+           fileInput("own_file", accept = "*.xlsx", label = "Upload individual filter data"),
+           helpText("A '.xlsx' file containing one's individual filter data can be temporarily uploaded here."),
+           helpText(strong("Note to keep the exact same data structure as in the template '.xlsx' file, which can be downloaded below.")),
+           tags$hr(),
+           downloadButton("MasterFile",label = "Download Filterdatabase", icon = "download"),
+           br(),
+           br(),
+           helpText("The currently used '.xlsx' file of the app (template or individual) can be downloaded here.")
 
-           downloadLink("MasterFile",label = "Download Filterdatabase", icon = "download"),
-           fileInput("own_file", accept = "*.xlsx", label = "test")
 
            ),
 
