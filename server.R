@@ -30,7 +30,7 @@ shinyServer(function(input, output, session) {
     }
 
     ##create chooser output
-    chooserInput("filterInput", "Filters available:", "Filters chosen:", filters, c(),
+    RLumShiny:::chooserInput("filterInput", "Filters available:", "Filters chosen:", filters, c(),
                  multiple = TRUE,  size = 5)
 
   })
