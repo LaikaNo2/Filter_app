@@ -29,7 +29,7 @@ shinyServer(function(input, output, session) {
     }
 
     ##create chooser output
-    chooserInput("filterInput", "Filters available:", "Filters chosen:", filters, c(),
+    RLumShiny:::chooserInput("filterInput", "Filters available:", "Filters chosen:", filters, c(),
                  multiple = TRUE,  size = 5)
 
   })
@@ -64,7 +64,6 @@ shinyServer(function(input, output, session) {
       if(input$stimulationInput == "infrared"){
         rect(847, 0, 853, 1, col = "red", lty = 0)}
 
-print(filter.matrix)
     }
   })
 
