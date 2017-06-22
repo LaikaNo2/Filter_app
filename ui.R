@@ -3,9 +3,8 @@
 ## Authors: Urs Tilmann Wolpert, Department of Geography, Justus-Liebig-University Giessen
 ##          Sebastian Kreutzer, IRAMAT-CRP2A, Universite Bordeaux Montaigne (France)
 ## Contact: urs.t.wolpert@geogr.uni-giessen.de
-## Date:    Tue June 20 2017
+## Date:    Thu June 22 2017
 ##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
 shinyUI(
  navbarPage("Filter_app",
   tabPanel("Transmission",
@@ -183,8 +182,6 @@ shinyUI(
            p("The 'chooser.R' R-script and 'chooser-binding.js' Java Script used in this program are taken from the",
              a("shiny-example", href = "https://github.com/rstudio/shiny-examples"),
              "repository under the", a("MIT License", href = "https://github.com/rstudio/shiny-examples/blob/master/LICENSE"), ".")
-
-
            )
 )
 )
