@@ -58,6 +58,9 @@ shinyUI(
                                  min = 200,
                                  max = 1000,
                                  value = c(200, 1000)),
+                     checkboxInput(inputId = "net_transmission",
+                                   label = "Show net transmisison",
+                                   value = TRUE),
                      checkboxInput(inputId = "legend",
                                    label = "Show legend",
                                    value = TRUE)

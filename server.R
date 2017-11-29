@@ -51,6 +51,7 @@ shinyServer(function(input, output, session) {
                               xlim = input$range,
                               main = input$main,
                               legend = input$legend,
+                              show_net_transmission = input$net_transmission,
                               legend.text = input$filterInput$right,
                               interactive = FALSE)
       if(input$stimulationInput == "NA"){
