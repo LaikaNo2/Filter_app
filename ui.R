@@ -179,7 +179,7 @@ shinyUI(
 
   tabPanel("About",
            h5("App version"),
-           p("0.2.0 (2017-11-280"),
+           p("0.2.0 (2017-11-29)"),
            h5("Authors"),
            p("Urs Tilmann Wolpert, Department of Geography, Justus-Liebig-University Giessen (Germany)"),
            p("Sebastian Kreutzer, IRAMAT-CRP2A, Universite Bordeaux Montaigne (France)"),
