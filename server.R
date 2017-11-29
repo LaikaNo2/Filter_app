@@ -95,7 +95,7 @@ shinyServer(function(input, output, session) {
           path = database_path,
           sheet = x,
           col_names = FALSE,
-          n_max = 7)),
+          n_max = 14)),
           stringsAsFactors = FALSE)
 
         ##change column names & remove unwanted characters
@@ -103,6 +103,9 @@ shinyServer(function(input, output, session) {
 
         ##remove first row
         data <- data[-1,]
+
+
+        print(data)
 
         ##remove NA values
         data <- data[!sapply(data[,1],is.na),]
@@ -113,7 +116,7 @@ shinyServer(function(input, output, session) {
       })
 
 
-      data.table::rbindlist(data)
+      data.table::rbindlist(data, fill = TRUE)
 
 
 
