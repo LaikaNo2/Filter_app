@@ -104,9 +104,6 @@ shinyServer(function(input, output, session) {
         ##remove first row
         data <- data[-1,]
 
-
-        print(data)
-
         ##remove NA values
         data <- data[!sapply(data[,1],is.na),]
 
