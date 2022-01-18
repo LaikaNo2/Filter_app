@@ -11,7 +11,6 @@ shinyServer(function(input, output, session) {
   output$filters <- renderUI({
 
     if(!is.null(input$own_file)){
-
       ##rename file in path
       file.rename(
         from = input$own_file$datapath,
