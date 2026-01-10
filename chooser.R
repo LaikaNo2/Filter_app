@@ -2,7 +2,7 @@
 ## 'chooser.R' taken from the shiny-examples repository (https://github.com/rstudio/shiny-examples) under the MIT License
 ##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 chooserInput <- function(inputId, leftLabel, rightLabel, leftChoices, rightChoices,
-                         size = 5, multiple = FALSE) {
+                         size = 15, multiple = FALSE) {
 
   leftChoices <- lapply(leftChoices, tags$option)
   rightChoices <- lapply(rightChoices, tags$option)
@@ -26,7 +26,7 @@ chooserInput <- function(inputId, leftLabel, rightLabel, leftChoices, rightChoic
         div(class = "chooser-container chooser-center-container",
             icon("fas fa-arrow-alt-circle-right", "right-arrow fa-3x"),
             tags$br(),
-            icon("fas fa-arrow-alt-circle-left", "left-arrow fa-3x")
+            icon("fas fa-arrow-alt-circle-left", "left-arrow fa-3xs")
         ),
         div(class = "chooser-container chooser-right-container",
             tags$select(class = "right", size = size, multiple = multiple, rightChoices)

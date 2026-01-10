@@ -19,6 +19,11 @@ shinyUI(
                   uiOutput(outputId = "filters"),
                   tags$hr(),
                   radioButtons(
+                    "interactive",
+                  label = "Interactive mode",
+                  choices = c("On" = TRUE, "Off" = FALSE),inline = TRUE),
+                  tags$hr(),
+                  radioButtons(
                     "stimulationInput",
                     label = "Show stimulation wavelength",
                     choices =
@@ -98,12 +103,13 @@ shinyUI(
 
             )),
 
-
-
-    mainPanel(uiOutput(outputId = "warningtext"),
-              plotOutput("filterPlot"),
-              tableOutput("metadata")
-              )
+    ## main plot
+    mainPanel(
+      uiOutput(outputId = "warningtext"),
+      conditionalPanel("input.interactive === 'TRUE'", plotly::plotlyOutput("filterPlot_interactive")),
+      conditionalPanel("input.interactive == 'FALSE'", plotOutput("filterPlot")),
+      tableOutput("metadata")
+    )
    )
   ),
   tabPanel("Optical Density",

@@ -8,6 +8,7 @@
 library(shiny)
 library(Luminescence)
 require(readxl)
+require(plotly)
 source("chooser.R")
 
 ##check whether a real database exists or the template should be loaded
